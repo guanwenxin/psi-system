@@ -3,7 +3,7 @@
   <router-view />
 </template>
 
-<!-- <style>
+<style>
 html, body {
   margin: 0;
   padding: 0;
@@ -15,4 +15,4 @@ html, body {
   fill: currentColor;
   overflow: hidden;
 }
-</style> -->
+</style>
