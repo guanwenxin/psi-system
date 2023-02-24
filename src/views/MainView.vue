@@ -8,7 +8,7 @@
         <aside-cop></aside-cop>
       </aside>
       <main>
-
+        <router-view />
       </main>
     </div>
   </div>
