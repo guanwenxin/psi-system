@@ -82,67 +82,70 @@
 </template>
 
 <script>
-
-// 点击页面跳转
-const routerMap = new Map()
-// 第一部分-1
-routerMap.set('1-1-1','/main/jhrk')
-routerMap.set('1-1-2','/main/thck')
-routerMap.set('1-1-3','/main/jhdjcx')
-routerMap.set('1-1-4','/main/thdjcx')
-routerMap.set('1-1-5','/main/jhdqkccx')
-// 第一部分-2
-routerMap.set('1-2-1','/main/xsck')
-routerMap.set('1-2-2','/main/khth')
-routerMap.set('1-2-3','/main/xsdjcx')
-routerMap.set('1-2-4','/main/khthcx')
-routerMap.set('1-2-5','/main/xsdqkccx')
-// 第一部分-3
-routerMap.set('1-3-1','/main/spbs')
-routerMap.set('1-3-2','/main/spby')
-routerMap.set('1-3-3','/main/kcbj')
-routerMap.set('1-3-4','/main/bsbycx')
-routerMap.set('1-3-5','/main/kcdqkccx')
-// 第二部分
-routerMap.set('2-1-1','/main/gystj')
-routerMap.set('2-1-2','/main/khtj')
-routerMap.set('2-1-3','/main/spcgtj')
-routerMap.set('2-1-4','/main/spxstj')
-routerMap.set('2-1-5','/main/artjfx')
-routerMap.set('2-1-6','/main/aytjfx')
-// 第三部分
-routerMap.set('3-1-1','/main/gysgl')
-routerMap.set('3-1-2','/main/khgl')
-routerMap.set('3-1-3','/main/spgl')
-routerMap.set('3-1-4','/main/qckc')
-// 第四部分
-routerMap.set('4-1-1','/main/jsgl')
-routerMap.set('4-1-2','/main/yhgl')
-routerMap.set('4-1-3','/main/xtrz')
-routerMap.set('4-1-4','/main/xgmm')
-routerMap.set('4-1-5','/main/aqtc')
-
-
 export default {
   name: "AsideCop",
 
   data: function () {
     return {
-      activeFlag: "",
+      activeFlag: "1-1-1",
+      // 点击页面跳转
+      routerMap: new Map(),
     };
+  },
+
+  mounted() {
+    console.log("导航栏", this.$route.params);
+    const pathVal = this.$route.params.userId;
+    // 第一部分-1
+    this.routerMap.set("1-1-1", `/main/${pathVal}/jhrk`);
+    this.routerMap.set("1-1-2", `/main/${pathVal}/thck`);
+    this.routerMap.set("1-1-3", `/main/${pathVal}/jhdjcx`);
+    this.routerMap.set("1-1-4", `/main/${pathVal}/thdjcx`);
+    this.routerMap.set("1-1-5", `/main/${pathVal}/jhdqkccx`);
+    // 第一部分-2
+    this.routerMap.set("1-2-1", `/main/${pathVal}/xsck`);
+    this.routerMap.set("1-2-2", `/main/${pathVal}/khth`);
+    this.routerMap.set("1-2-3", `/main/${pathVal}/xsdjcx`);
+    this.routerMap.set("1-2-4", `/main/${pathVal}/khthcx`);
+    this.routerMap.set("1-2-5", `/main/${pathVal}/xsdqkccx`);
+    // 第一部分-3
+    this.routerMap.set("1-3-1", `/main/${pathVal}/spbs`);
+    this.routerMap.set("1-3-2", `/main/${pathVal}/spby`);
+    this.routerMap.set("1-3-3", `/main/${pathVal}/kcbj`);
+    this.routerMap.set("1-3-4", `/main/${pathVal}/bsbycx`);
+    this.routerMap.set("1-3-5", `/main/${pathVal}/kcdqkccx`);
+    // 第二部分
+    this.routerMap.set("2-1-1", `/main/${pathVal}/gystj`);
+    this.routerMap.set("2-1-2", `/main/${pathVal}/khtj`);
+    this.routerMap.set("2-1-3", `/main/${pathVal}/spcgtj`);
+    this.routerMap.set("2-1-4", `/main/${pathVal}/spxstj`);
+    this.routerMap.set("2-1-5", `/main/${pathVal}/artjfx`);
+    this.routerMap.set("2-1-6", `/main/${pathVal}/aytjfx`);
+    // 第三部分/
+    this.routerMap.set("3-1-1", `/main/${pathVal}/gysgl`);
+    this.routerMap.set("3-1-2", `/main/${pathVal}/khgl`);
+    this.routerMap.set("3-1-3", `/main/${pathVal}/spgl`);
+    this.routerMap.set("3-1-4", `/main/${pathVal}/qckc`);
+    // 第四部分/${pathVal}
+    this.routerMap.set("4-1-1", `/main/${pathVal}/jsgl`);
+    this.routerMap.set("4-1-2", `/main/${pathVal}/yhgl`);
+    this.routerMap.set("4-1-3", `/main/${pathVal}/xtrz`);
+    this.routerMap.set("4-1-4", `/main/${pathVal}/xgmm`);
+    this.routerMap.set("4-1-5", `/main/${pathVal}/aqtc`);
   },
 
   methods: {
     active(index) {
       this.activeFlag = index;
-      if (routerMap.has(index)) {
-                // 防止目标url当前url相同时，push出错
-                const aimUrl = routerMap.get(index);
-                const currentUrl = this.$router.currentRoute.fullPath
-                if (aimUrl !== currentUrl) {
-                    this.$router.push(aimUrl)
-                }
-            }
+      console.log(typeof index)
+      if (this.routerMap.has(index)) {
+        // 防止目标url当前url相同时，push出错
+        const aimUrl = this.routerMap.get(index);
+        const currentUrl = this.$router.currentRoute.fullPath;
+        if (aimUrl !== currentUrl) {
+          this.$router.push(aimUrl);
+        }
+      }
     },
   },
 };

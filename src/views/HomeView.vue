@@ -29,6 +29,8 @@
 
 
 <script>
+import { store } from '@/utils/store'
+
 export default {
   // 预定义属性
   name: 'HomeView',
@@ -47,7 +49,9 @@ export default {
   methods: {
       login() {
        // TODO: 跳转至主页面
-       this.$router.push({path:'main'})
+       this.$router.push({ path: `main/${this.form.name}` })
+       console.log(store)
+       store.push(this.form)
     },
   }
 }

@@ -56,12 +56,13 @@ const routes = [
     component: HomeViewVue
   },
   {
-    path: '/main',
+    path: '/main/:userId',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: MainView,
     children: [
+
       {
         // 当 /user/:id/profile 匹配成功
         // UserProfile 将被渲染到 User 的 <router-view> 内部
@@ -188,6 +189,12 @@ const routes = [
       {
         path: 'aqtc',
         component: aqtcTab,
+      },
+
+      // 路由重定向
+      {
+        path: '',
+        redirect: 'jhrk'
       },
     ]
   }

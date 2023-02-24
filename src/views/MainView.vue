@@ -17,12 +17,16 @@
 <script>
 import AsideCop from '@/components/AsideCop.vue'
 import HeaderCop from '@/components/HeaderCop.vue'
+import { store } from '@/utils/store'
 export default{
   name:'MainView',
   components: {
     AsideCop,
     HeaderCop,
   },
+  mounted(){
+    console.log('main组件',store)
+  }
 }
 </script>
 <style lang="scss" scoped>

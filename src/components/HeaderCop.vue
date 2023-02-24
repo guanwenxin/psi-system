@@ -1,5 +1,7 @@
 <template>
-  <div>我是header</div>
+  <div>我是header
+    {{ $route.params.userId }}
+  </div>
 </template>
 
 <script>
