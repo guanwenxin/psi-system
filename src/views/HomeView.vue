@@ -19,7 +19,7 @@
             </el-form-item>
           </el-form>
           <div class="operator">
-            <el-button size="small" @click="login">登录</el-button>
+            <el-button size="small" @click="login" :disabled="canLogin">登录</el-button>
           </div>
         </div>
       </div>
@@ -43,6 +43,17 @@ export default {
       },
       isShowChild: true,
       pInfo: '这是用来设置默认的input框的值',
+    }
+  },
+  computed: {
+    canLogin() {
+      const {name, passwd } = this.form;
+      return !(name && passwd);
+      // if (this.form.name && this.form.passwd) {
+      //   return false;
+      // } else {
+      //   return true
+      // }
     }
   },
   // 方法
