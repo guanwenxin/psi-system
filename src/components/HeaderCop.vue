@@ -56,7 +56,7 @@ export default {
       flex-grow: 1;
   }
   .info {
-      width: 220px;
+      width: 300px;
       display: flex;
       // justify-content: center;
       align-items: center;

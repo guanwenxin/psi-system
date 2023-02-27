@@ -76,6 +76,17 @@
           <el-menu-item index="4-1-5">安全退出</el-menu-item>
         </el-submenu>
       </el-submenu>
+
+      <el-submenu index="5">
+        <template slot="title">
+          <i class="el-icon-location"></i>
+          <span>其它</span>
+        </template>
+        <el-submenu index="5-1">
+          <template slot="title">其它</template>
+          <el-menu-item index="5-1-1">其它</el-menu-item>
+        </el-submenu>
+      </el-submenu>
     </el-menu>
     <div class="aside-footer">Copyright [2023] by [Guan]</div>
   </div>
@@ -132,6 +143,8 @@ export default {
     this.routerMap.set("4-1-3", `/main/${pathVal}/xtrz`);
     this.routerMap.set("4-1-4", `/main/${pathVal}/xgmm`);
     this.routerMap.set("4-1-5", `/main/${pathVal}/aqtc`);
+    // 第五部分/${pathVal}
+    this.routerMap.set("5-1-1", `/main/${pathVal}/qt`);
   },
 
   methods: {

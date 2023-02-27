@@ -46,6 +46,9 @@ import xtrzTab from '@/components/navbar/xtgl/xtrzTab.vue'
 import xgmmTab from '@/components/navbar/xtgl/xgmmTab.vue'
 import aqtcTab from '@/components/navbar/xtgl/aqtcTab.vue'
 
+//引入其它
+import qtTab from '@/components/navbar/other/qtTab.vue'
+
 
 
 Vue.use(VueRouter)
@@ -189,6 +192,11 @@ const routes = [
       {
         path: 'aqtc',
         component: aqtcTab,
+      },
+      //其它
+      {
+        path: 'qt',
+        component: qtTab,
       },
 
       // 路由重定向
