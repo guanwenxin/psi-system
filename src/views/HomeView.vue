@@ -29,7 +29,8 @@
 
 
 <script>
-import { store } from '@/utils/store'
+// import { store } from '@/utils/store'
+import { getToken } from '@/utils/store'
 
 export default {
   // 预定义属性
@@ -58,11 +59,15 @@ export default {
   },
   // 方法
   methods: {
-      login() {
+      async login() {
+        // 提供 isAuthenticated
+      // TODO: 网络请求
+      const token = await getToken()
+      sessionStorage.setItem('token', token)
        // TODO: 跳转至主页面
        this.$router.push({ path: `main/${this.form.name}` })
-       console.log(store)
-       store.push(this.form)
+      //  console.log(store)
+      //  store.push(this.form)
     },
   }
 }

@@ -26,6 +26,14 @@ export default{
   },
   mounted(){
     console.log('main组件',store)
+  },
+  beforeRouteLeave(to, from, next) {
+    const answer = window.confirm('你确定要离开嘛!')
+    if (answer) {
+      next()
+    } else {
+      next(false)
+    }
   }
 }
 </script>
