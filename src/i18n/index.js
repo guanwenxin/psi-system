@@ -25,6 +25,13 @@ const language = {
             welcome:'欢迎',
             weluser:'用户',
             welsentence:'登录企业进销存管理系统',
+            Purchasemgt:'进货管理',
+            Purchase:'进货入库',
+            Return:'退货出库',
+            IncomingDocuments:'进货单据查询',
+            Returndocuments:'退货单据查询',
+            CurrentStockInquiry:'当前库存查询',
+            
         },
         ...Eli18nzh,
     },
@@ -43,6 +50,13 @@ const language = {
             welcome:'welcome',
             weluser:'user',
             welsentence:'Log in to the enterprise PSIsystem',
+            Purchasemgt:'Purchase management',
+            Purchase:'Purchase',
+            Return:'Return',
+            IncomingDocuments:'Incoming documents',
+            ReturnDocuments:'ReturnDocuments',
+            CurrentStockInquiry:'Current stock inquiry',
+            
         },
         ...Eli18nen,
     }

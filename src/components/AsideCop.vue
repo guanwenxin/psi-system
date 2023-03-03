@@ -7,12 +7,12 @@
           <span>{{ $t("msg.Invoicing") }}</span>
         </template>
         <el-submenu index="1-1">
-          <template slot="title">进货管理</template>
-          <el-menu-item index="1-1-1">进货入库</el-menu-item>
-          <el-menu-item index="1-1-2">退货出库</el-menu-item>
-          <el-menu-item index="1-1-3">进货单据查询</el-menu-item>
-          <el-menu-item index="1-1-4">退货单据查询</el-menu-item>
-          <el-menu-item index="1-1-5">当前库存查询</el-menu-item>
+          <template slot="title">{{ $t("msg.Purchasemgt") }}</template>
+          <el-menu-item index="1-1-1">{{ $t("msg.Purchase") }}</el-menu-item>
+          <el-menu-item index="1-1-2">{{ $t("msg.Return") }}</el-menu-item>
+          <el-menu-item index="1-1-3">{{ $t("msg.IncomingDocuments") }}</el-menu-item>
+          <el-menu-item index="1-1-4">{{ $t("msg.Returndocuments") }}</el-menu-item>
+          <el-menu-item index="1-1-5">{{ $t("msg.CurrentStockInquiry") }}</el-menu-item>
         </el-submenu>
         <el-submenu index="1-2">
           <template slot="title">销售管理</template>
