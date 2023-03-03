@@ -4,7 +4,7 @@
       <div class="title">
         <h2><span>¶</span><slot></slot></h2>
         <div class="backBtn">
-          <el-button>返回登陆页面</el-button>
+          <el-button @click="login">返回登陆页面</el-button>
         </div>
       </div>
       <p class="sub-title"><slot name="sub"></slot></p>
@@ -62,6 +62,10 @@ export default {
     };
   },
   methods: {
+    async login(){
+        this.$router.push({path:'/'})
+    },
+
     imgFormat(imgNum) {
       // 如果以变量的形式传递路径，并且路径在src/assets下，需要将路径用require包裹
       return require(`@/assets/weather-img/${imgNum}.png`);
