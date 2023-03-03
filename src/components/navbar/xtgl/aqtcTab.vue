@@ -1,16 +1,26 @@
 
 <template>
     <div class="default" ref="default" @scroll="setButton($event)">
-        <div ref="top">安全退出</div>
-        <div style="height: 20000px; background-color: pink;"></div>
+        <div ref="top">
+            <aqtc-slot>
+                安全退出
+                <template v-slot:sub>
+                    欢迎下次继续使用企业进销存系统，以下是天气预报查询，希望每天天好心情。再见！！！
+                </template>
+            </aqtc-slot>
+        </div>
+
         <div v-show="needTopBtn" class="back"><el-button type="primary" @click="returnTop">回顶部</el-button></div>
     </div>
 </template>
 
 <script>
+import aqtcSlot from './aqtcSlot.vue'
 export default {
     name:'aqtcTab',
-
+    components: {
+        aqtcSlot
+    },
     data: function () {
         return {
             needTopBtn: false,
