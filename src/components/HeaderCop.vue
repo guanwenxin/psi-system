@@ -15,7 +15,7 @@ export default{
       <div class="logo"><img src="../assets/header-picture.png" /></div>
       <div class="content"></div>
       <div class="info">
-        欢迎{{ $route.params.userId }}用户，登录企业进销存管理系统
+        {{ $t("msg.welcome") }}{{ $route.params.userId }}{{ $t("msg.weluser") }}，{{ $t("msg.welsentence") }}
       </div>
   </div>
 </template>
@@ -56,7 +56,7 @@ export default {
       flex-grow: 1;
   }
   .info {
-      width: 300px;
+      width: 400px;
       display: flex;
       // justify-content: center;
       align-items: center;

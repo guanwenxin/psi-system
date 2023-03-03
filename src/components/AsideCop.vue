@@ -4,7 +4,7 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>进销存管理</span>
+          <span>{{ $t("msg.Invoicing") }}</span>
         </template>
         <el-submenu index="1-1">
           <template slot="title">进货管理</template>
@@ -35,10 +35,10 @@
       <el-submenu index="2">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>统计报表分析</span>
+          <span>{{ $t("msg.analyse") }}</span>
         </template>
         <el-submenu index="2-1">
-          <template slot="title">统计报表</template>
+          <template slot="title">{{ $t("msg.analyse") }}</template>
           <el-menu-item index="2-1-1">供应商统计</el-menu-item>
           <el-menu-item index="2-1-2">客户统计</el-menu-item>
           <el-menu-item index="2-1-3">商品采购统计</el-menu-item>
@@ -51,10 +51,10 @@
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>基础资料</span>
+          <span>{{ $t("msg.information") }}</span>
         </template>
         <el-submenu index="3-1">
-          <template slot="title">基础资料</template>
+          <template slot="title">{{ $t("msg.information") }}</template>
           <el-menu-item index="3-1-1">供应商管理</el-menu-item>
           <el-menu-item index="3-1-2">客户管理</el-menu-item>
           <el-menu-item index="3-1-3">商品管理</el-menu-item>
@@ -65,10 +65,10 @@
       <el-submenu index="4">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>系统管理</span>
+          <span>{{ $t("msg.system") }}</span>
         </template>
         <el-submenu index="4-1">
-          <template slot="title">系统管理</template>
+          <template slot="title">{{ $t("msg.system") }}</template>
           <el-menu-item index="4-1-1">角色管理</el-menu-item>
           <el-menu-item index="4-1-2">用户管理</el-menu-item>
           <el-menu-item index="4-1-3">系统日志</el-menu-item>
@@ -80,11 +80,11 @@
       <el-submenu index="5">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>其它</span>
+          <span>{{ $t("msg.other") }}</span>
         </template>
         <el-submenu index="5-1">
-          <template slot="title">其它</template>
-          <el-menu-item index="5-1-1">其它</el-menu-item>
+          <template slot="title">{{ $t("msg.other") }}</template>
+          <el-menu-item index="5-1-1">{{ $t("msg.other") }}</el-menu-item>
         </el-submenu>
       </el-submenu>
     </el-menu>

@@ -2,7 +2,7 @@
   <!-- 0.v-bind -->
   <div class="page">
     <div class="bg-img">
-      <img src="../assets/login-background.png">
+      <img src="../assets/login-background.png" />
     </div>
     <div class="container">
       <!-- <ChildComp></ChildComp> -->
@@ -10,16 +10,35 @@
       <div class="login">
         <div class="login-wrapper">
           <el-form :model="form" label-width="80px">
-            <div class="form-name">欢迎使用企业进销存管理系统</div>
-            <el-form-item label="用户名：">
+            <div class="form-name">{{ $t("msg.hometitle") }}</div>
+            <el-form-item :label="$t('msg.name')">
               <el-input v-model="form.name"></el-input>
             </el-form-item>
-            <el-form-item label="密码：">
+            <el-form-item :label="$t('msg.passwd')">
               <el-input v-model="form.passwd" show-password></el-input>
             </el-form-item>
           </el-form>
           <div class="operator">
-            <el-button size="small" @click="login" :disabled="canLogin">登录</el-button>
+            <el-button size="small" @click="login" :disabled="canLogin">
+              {{ $t("msg.login") }}
+            </el-button>
+            <!-- 用数组的方式 ，再用v-for循环-->
+            <el-select
+              size="small"
+              v-model="selectedLang"
+              placeholder="请选择语言"
+              @change="changeLang"
+            >
+              <el-option
+                v-for="(lang, index) in langArr"
+                :label="lang.label"
+                :value="lang.value"
+                :key="index"
+              >
+              </el-option>
+              <!-- <el-option label="中文站" value="zh"></el-option>
+              <el-option label="英文站" value="en"></el-option> -->
+            </el-select>
           </div>
         </div>
       </div>
@@ -30,47 +49,59 @@
 
 <script>
 // import { store } from '@/utils/store'
-import { getToken } from '@/utils/store'
+import { getToken } from "@/utils/store";
 
 export default {
   // 预定义属性
-  name: 'HomeView',
+  name: "HomeView",
   // 组件当中所有的响应式数据
   data: function () {
     return {
       form: {
-        name: '',
-        passwd: '',
+        name: "",
+        passwd: "",
       },
       isShowChild: true,
-      pInfo: '这是用来设置默认的input框的值',
-    }
+      pInfo: "这是用来设置默认的input框的值",
+      // 用数组的方式
+      langArr: [
+        { label: "中文", value: "zh" },
+        { label: "English", value: "en" },
+      ],
+      selectedLang: "",
+    };
   },
   computed: {
     canLogin() {
-      const {name, passwd } = this.form;
+      const { name, passwd } = this.form;
       return !(name && passwd);
       // if (this.form.name && this.form.passwd) {
       //   return false;
       // } else {
       //   return true
       // }
-    }
+    },
   },
   // 方法
   methods: {
-      async login() {
-        // 提供 isAuthenticated
+    async login() {
+      // 提供 isAuthenticated
       // TODO: 网络请求
-      const token = await getToken()
-      sessionStorage.setItem('token', token)
-       // TODO: 跳转至主页面
-       this.$router.push({ path: `main/${this.form.name}` })
+      const token = await getToken();
+      sessionStorage.setItem("token", token);
+      // TODO: 跳转至主页面
+      this.$router.push({ path: `main/${this.form.name}` });
       //  console.log(store)
       //  store.push(this.form)
     },
-  }
-}
+    changeLang(lang) {
+      // console.log(this.$i18n.locale, this.$root.$i18n.locale);
+      // TODO: 更改国际化语言
+      // 参数lang，切换什么语言就是什么语言
+      this.$i18n.locale = lang;
+    },
+  },
+};
 </script>
 
 
@@ -95,7 +126,7 @@ export default {
     width: 300px;
     padding: 40px;
     border-radius: 10px;
-    .form-name{
+    .form-name {
       font-size: larger;
       margin: 15px 25px;
     }
@@ -107,7 +138,7 @@ export default {
   left: 0;
   z-index: -1;
   width: 100%;
-    height: 100%;
+  height: 100%;
   img {
     width: 100%;
     height: 100%;
