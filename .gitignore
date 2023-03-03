@@ -2,6 +2,7 @@
 /node_modules
 /dist
 /src/assets/theme-css
+/src/assets/weather-img
 
 
 # local env files
