@@ -31,7 +31,6 @@ const language = {
             IncomingDocuments:'进货单据查询',
             Returndocuments:'退货单据查询',
             CurrentStockInquiry:'当前库存查询',
-            
         },
         ...Eli18nzh,
     },
