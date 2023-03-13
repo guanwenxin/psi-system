@@ -50,6 +50,7 @@
 <script>
 // import { store } from '@/utils/store'
 import { getToken } from "@/utils/store";
+import {login} from "@/utils/login"
 
 export default {
   // 预定义属性
@@ -84,22 +85,43 @@ export default {
   },
   // 方法
   methods: {
-    async login() {
-      // 提供 isAuthenticated
-      // TODO: 网络请求
-      const token = await getToken();
-      sessionStorage.setItem("token", token);
-      // TODO: 跳转至主页面
-      this.$router.push({ path: `main/${this.form.name}` });
-      //  console.log(store)
-      //  store.push(this.form)
-    },
     changeLang(lang) {
-      // console.log(this.$i18n.locale, this.$root.$i18n.locale);
+      console.log(this.$i18n.locale, this.$root.$i18n.locale)
+      this.$i18n.locale = lang
       // TODO: 更改国际化语言
-      // 参数lang，切换什么语言就是什么语言
-      this.$i18n.locale = lang;
     },
+
+    // async login() {
+    // // 提供 isAuthenticated
+    //   // TODO: 网络请求
+    //   const token = await getToken();
+    //   sessionStorage.setItem("token", token);
+    //   // TODO: 跳转至主页面
+    //   this.$router.push({ path: `main/${this.form.name}` });
+    //   //  console.log(store)
+    //   //  store.push(this.form)
+    // },
+    
+    async login() {
+      // console.log(this.$router)
+       // TODO: 跳转至主页面
+      // 提供 isAuthenticated
+      // TODO: 网络请求})
+      const result = await login.post('/login', {username: this.form.name, password: this.form.passwd})
+      const data = result.data;
+      if (data.success) {
+        // console.log(data)
+        // const token = data.data.token;
+        // sessionStorage.setItem('token', token)
+        sessionStorage.setItem('token', 'token')
+        this.$router.push({ path: `main/${this.form.name}` })
+      } else {
+        this.$message('失败')
+      }
+      console.log(result)
+    },
+
+    
   },
 };
 </script>
