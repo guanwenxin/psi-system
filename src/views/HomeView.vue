@@ -110,10 +110,9 @@ export default {
       const result = await login.post('/login', {username: this.form.name, password: this.form.passwd})
       const data = result.data;
       if (data.success) {
-        // console.log(data)
-        // const token = data.data.token;
-        // sessionStorage.setItem('token', token)
-        sessionStorage.setItem('token', 'token')
+        console.log(data)
+        const token = data.data.token;
+        sessionStorage.setItem('token', token)
         this.$router.push({ path: `main/${this.form.name}` })
       } else {
         this.$message('失败')
